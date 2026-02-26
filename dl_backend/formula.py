@@ -4,7 +4,7 @@
 
 def generate_one_over_one_minus_x_order(n: int) -> str:
     res = "1"
-    for k in range(1, n):
+    for k in range(1, n + 1):
         res += f"+x^{k}"
     res += f"+o(x^{n})"
     return res
@@ -20,7 +20,7 @@ def generate_one_over_one_minus_x() -> str:
 
 def generate_one_over_one_plus_x_order(n: int) -> str:
     res = "1"
-    for k in range(1, n):
+    for k in range(1, n + 1):
         if k % 2 == 1:
             res += f"-x^{k}"
         else:
@@ -39,7 +39,7 @@ def generate_one_over_one_plus_x() -> str:
 
 def generate_exp_order(n: int) -> str:
     res = "1+x"
-    for k in range(2, n):
+    for k in range(2, n + 1):
         res += f"+\\frac{{x^{k}}}{{{k}!}}"
     res += f"+o(x^{n})"
     return res
@@ -56,7 +56,7 @@ def generate_exp() -> str:
 def generate_sin_order(n: int) -> str:
     res = "x"
     sign = -1
-    for k in range(3, n, 2):
+    for k in range(3, n + 1, 2):
         if sign == -1:
             res += f"-\\frac{{x^{k}}}{{{k}!}}"
         else:
@@ -77,7 +77,7 @@ def generate_sin() -> str:
 def generate_cos_order(n: int) -> str:
     res = "1"
     sign = -1
-    for k in range(2, n, 2):
+    for k in range(2, n + 1, 2):
         if sign == -1:
             res += f"-\\frac{{x^{k}}}{{{k}!}}"
         else:
@@ -98,7 +98,7 @@ def generate_cos() -> str:
 def generate_ln_one_plus_x_order(n: int) -> str:
     res = "x"
     sign = -1
-    for k in range(2, n):
+    for k in range(2, n + 1):
         if sign == -1:
             res += f"-\\frac{{x^{k}}}{{{k}}}"
         else:
@@ -119,7 +119,7 @@ def generate_ln_one_plus_x() -> str:
 def generate_arctan_order(n: int) -> str:
     res = "x"
     sign = -1
-    for k in range(3, n, 2):
+    for k in range(3, n + 1, 2):
         if sign == -1:
             res += f"-\\frac{{x^{k}}}{{{k}}}"
         else:
